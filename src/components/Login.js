@@ -7,7 +7,6 @@ import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 
 import AuthService from "../services/auth.service";
 import Footer from "../components/costum/Footer";
@@ -25,7 +24,6 @@ const required = (value) => {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -96,12 +94,12 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <section style={{ backgroundColor: "white", height: 640 }}>
       {!user ? (
-        <Container component="main" maxWidth="sm">
+        <div maxWidth="sm">
           <CssBaseline />
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" style={{ marginTop:100}}>
               Desa Cireundeu Cilograng
             </Typography>
             <Form onSubmit={handleLogin} ref={form}>
@@ -160,11 +158,11 @@ const Login = (props) => {
               <Footer />
             </Box>
           </div>
-        </Container>
+        </div>
       ) : (
         <NotFound />
       )}
-    </div>
+    </section>
   );
 };
 

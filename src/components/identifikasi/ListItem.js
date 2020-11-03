@@ -32,7 +32,7 @@ const useItems = () => {
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.success.main,
     color: theme.palette.common.white,
   },
   body: {
@@ -332,7 +332,7 @@ const ListItem = () => {
                     {item.fileData ? (
                       <button>
                         <Link
-                          href={`http://localhost:8080${item.fileData}`}
+                          href={`http://traz.desacireundeucilograng.web.id/${item.fileData}`}
                           target="download"
                         >
                           Download File
@@ -374,7 +374,7 @@ const ListItem = () => {
                         </button>
                       </div>
                     ) : (
-                      <button disabled={true}>Konten Publik</button>
+                      <button style={{color:"#4caf50"}} disabled={true}>Konten Publik</button>
                     )}
                   </StyledTableCell>
                 </StyledTableRow>

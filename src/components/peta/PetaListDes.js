@@ -4,13 +4,14 @@ import WebdesServices from "../../services/services.des";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
-import { indigo } from "@material-ui/core/colors";
+import { green } from "@material-ui/core/colors";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -30,7 +31,7 @@ const useItems = () => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 700,
+    maxWidth: 400,
     marginBottom: 20,
   },
   ketBtn: {
@@ -220,59 +221,76 @@ const ListPeta = () => {
       <Button onClick={btnFilter} variant="outlined" color="primary">
         Terapkan
       </Button>
-      {petaList.length ? (
-        petaList.map((item) => (
-          <Card key={item.id} className={classes.root}>
-            <CardActionArea disabled>
-              <CardMedia
-                component="img"
-                alt="Mohon Tunggu..."
-                height="200"
-                image={`http://localhost:8080${item.fileData}`}
-                title="Peta Shape"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {item.jenis}
-                </Typography>
-                <Box mb={1} component="span" display="block">
-                  <Box
-                    mr={1}
-                    border={1}
-                    className={classes.ketBtn}
-                    component="span"
-                  >
-                    {item.kategori}
-                  </Box>
-                  <Box border={1} className={classes.ketBtn} component="span">
-                    {item.jenis}
-                  </Box>
-                </Box>
-                <Typography
-                  variant="subtitle1"
-                  gutterBottom
-                  color="textSecondary"
-                >
-                  {item.keterangan}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions style={{ backgroundColor: indigo[500] }}>
-              <Button size="small">
-                <Link
-                  style={{ color: "white", textTransform: "none" }}
-                  href={`http://localhost:8080${item.fileData}`}
-                  target="download"
-                >
-                  Fullscreen
-                </Link>
-              </Button>
-            </CardActions>
-          </Card>
-        ))
-      ) : (
-        <Typography variant="h3">Tidak Ada Data</Typography>
-      )}
+      <div style={{ flexGrow: 1 }}>
+        <Grid container spacing={1}>
+          <Grid container item xs={12} spacing={3}>
+            {petaList.length ? (
+              petaList.map((item) => (
+                <Grid key={item.id} item xs={4}>
+                  <Card className={classes.root}>
+                    <CardActionArea disabled>
+                      <CardMedia
+                        component="img"
+                        alt="Mohon Tunggu..."
+                        height="200"
+                        image={`http://traz.desacireundeucilograng.web.id/${item.fileData}`}
+                        title="Peta Shape"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {item.jenis}
+                        </Typography>
+                        <Grid>
+                          <Grid container wrap="nowrap" item xs={6}>
+                            <Box
+                              border={1}
+                              className={classes.ketBtn}
+                              component="span"
+                            >
+                              {item.kategori}
+                            </Box>
+                          </Grid>
+                          <Grid container wrap="nowrap" item xs={6}>
+                            <Box
+                              mt={1}
+                              border={1}
+                              className={classes.ketBtn}
+                              component="span"
+                            >
+                              {item.jenis}
+                            </Box>
+                          </Grid>
+                        </Grid>
+                        <Typography
+                          variant="subtitle1"
+                          gutterBottom
+                          color="textSecondary"
+                          style={{ marginTop: 10 }}
+                        >
+                          {item.keterangan}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions style={{ backgroundColor: green[500] }}>
+                      <Button size="small">
+                        <Link
+                          style={{ color: "white", textTransform: "none" }}
+                          href={`http://traz.desacireundeucilograng.web.id/${item.fileData}`}
+                          target="download"
+                        >
+                          Fullscreen
+                        </Link>
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))
+            ) : (
+              <Typography variant="h4" style={{color:"red", margin:10}}>TIDAK ADA DATA!</Typography>
+            )}
+          </Grid>
+        </Grid>
+      </div>
     </section>
   );
 };

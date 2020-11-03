@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_API_URL = "http://localhost:8080/";
+const BASE_API_URL = "http://traz.desacireundeucilograng.web.id/";
 
 class WebdesServices {
   getAllIdentifikasi() {
@@ -141,6 +141,22 @@ class WebdesServices {
 
   delPeta(rnid) {
     return axios.delete(BASE_API_URL + `des7/${rnid}`);
+  }
+
+  getAllSaran() {
+    return axios.get(BASE_API_URL + "saran");
+  }
+
+  postSaran(dataSaran) {
+    return axios.post(BASE_API_URL + "saran", dataSaran);
+  }
+
+  getSaran(rnid) {
+    return axios.get(BASE_API_URL + `saran/${rnid}`);
+  }
+
+  putSaran(updateSaran) {
+    return axios.put(BASE_API_URL + "saran", updateSaran);
   }
 }
 

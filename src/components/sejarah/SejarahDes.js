@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ListItem from "./ListItem";
 import AddItem from "./AddItem";
@@ -6,15 +6,11 @@ import AddItem from "./AddItem";
 import Typography from "@material-ui/core/Typography";
 
 const SejarahDesPage = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
-  if (!user) {
-    setUser("User");
-  }
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <section>
-    {user !== "User" ? (
+    {user ? (
       <AddItem />
     ) : (
       <div>

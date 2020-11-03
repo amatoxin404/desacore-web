@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ListItem from "./ListItem";
 import AddItem from "./AddItem";
@@ -7,15 +7,11 @@ import PetaList from "./PetaListDes";
 import Typography from "@material-ui/core/Typography";
 
 const PetaDesPage = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
-  if (!user) {
-    setUser("User");
-  }
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <section>
-      {user == "User" ? (
+      {!user ? (
         <div>
           <Typography>List Peta Desa</Typography>
           <hr style={{marginBottom:20}}/>

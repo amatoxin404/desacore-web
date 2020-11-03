@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,8 +7,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
+import UserIcon from "@material-ui/icons/SupervisedUserCircleOutlined";
 import IconButton from "@material-ui/core/IconButton";
-import Link from "@material-ui/core/Link";
+import LinkMats from "@material-ui/core/Link";
 
 import AuthService from "../../services/auth.service";
 
@@ -58,9 +59,9 @@ export default function AppBarU(props) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar>
+        <AppBar style={{ backgroundColor: "#388e3c" }}>
           <Toolbar>
-            <Link
+            <LinkMats
               onClick={() => {
                 refreshPage();
                 history.push("/home");
@@ -68,7 +69,7 @@ export default function AppBarU(props) {
               style={{ color: "white", fontWeight: "bold", fontSize: 18 }}
             >
               {showTitle}
-            </Link>
+            </LinkMats>
             <div style={{ flexGrow: 1 }}></div>
             {showAdminBoard ? (
               <div>
@@ -76,7 +77,13 @@ export default function AppBarU(props) {
                   <LogoutIcon style={{ color: "white" }} />
                 </IconButton>
               </div>
-            ) : null}
+            ) : (
+              <Link to="/desacore/auth/141195102/amatoxin/login">
+                <IconButton size="small">
+                  <UserIcon style={{ color: "white" }} />
+                </IconButton>
+              </Link>
+            )}
           </Toolbar>
         </AppBar>
       </HideOnScroll>

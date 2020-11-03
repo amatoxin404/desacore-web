@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path={["/", "/home"]} component={Home} />
-        <Route path="/login" component={Login} />
+        <Route path="/desacore/auth/141195102/amatoxin/login" component={Login} />
         <Route path="*">
           <NotFound />
         </Route>

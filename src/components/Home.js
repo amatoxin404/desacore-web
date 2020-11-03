@@ -8,6 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
+import DashboardDesPage from "./dashboard/DasboardDes";
 import Footer from "./costum/Footer";
 import ProdesPage from "./profil/Prodes";
 import SejarahDesPage from "./sejarah/SejarahDes";
@@ -81,34 +82,38 @@ export default function Home() {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="Sejarah" {...a11yProps(0)} />
-          <Tab label="Struktur" {...a11yProps(1)} />
-          <Tab label="Visi Misi" {...a11yProps(2)} />
-          <Tab label="Lembaga" {...a11yProps(3)} />
-          <Tab label="Profil" {...a11yProps(4)} />
-          <Tab label="Identifikasi" {...a11yProps(5)} />
-          <Tab label="Peta" {...a11yProps(6)} />
+          <Tab label="Dashboard" {...a11yProps(0)} />
+          <Tab label="Sejarah" {...a11yProps(1)} />
+          <Tab label="Struktur" {...a11yProps(2)} />
+          <Tab label="Visi Misi" {...a11yProps(3)} />
+          <Tab label="Lembaga" {...a11yProps(4)} />
+          <Tab label="Profil" {...a11yProps(5)} />
+          <Tab label="Identifikasi" {...a11yProps(6)} />
+          <Tab label="Peta" {...a11yProps(7)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <SejarahDesPage />
+        <DashboardDesPage />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <StrukturDesPage />
+        <SejarahDesPage />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <VMDesPage />
+        <StrukturDesPage />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <LembagaDesPage />
+        <VMDesPage />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <ProdesPage />
+        <LembagaDesPage />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        <IdentifikasiDesPage />
+        <ProdesPage />
       </TabPanel>
       <TabPanel value={value} index={6}>
+        <IdentifikasiDesPage />
+      </TabPanel>
+      <TabPanel value={value} index={7}>
         <PetaDesPage />
       </TabPanel>
       <Footer />
